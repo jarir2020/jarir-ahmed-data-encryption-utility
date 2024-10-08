@@ -1,0 +1,24 @@
+{
+    "name": "jarir-ahmed/data-encryption-utility",
+    "description": "A simple and secure data encryption/decryption utility for PHP.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jarir Ahmed",
+            "email": "jarircse16@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JarirAhmed\\Encryptor\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "minimum-stability": "stable"
+}

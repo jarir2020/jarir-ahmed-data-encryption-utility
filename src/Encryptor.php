@@ -9,7 +9,7 @@ class Encryptor
     private $key;
     private $ivLength;
 
-    public function __construct(string $key, string $cipher = 'AES-256-CBC')
+    public static function __construct(string $key, string $cipher = 'AES-256-CBC')
     {
         if (!in_array($cipher, openssl_get_cipher_methods(), true)) {
             throw new \InvalidArgumentException("Cipher method {$cipher} is not supported.");
@@ -26,7 +26,7 @@ class Encryptor
      * @param string $data Plain text data to encrypt.
      * @return string Base64 encoded encrypted data with IV.
      */
-    public function encrypt(string $data): string
+    public static function encrypt(string $data): string
     {
         $iv = random_bytes($this->ivLength);
         $encrypted = openssl_encrypt($data, $this->cipher, $this->key, OPENSSL_RAW_DATA, $iv);
@@ -45,7 +45,7 @@ class Encryptor
      * @param string $data Base64 encoded encrypted data with IV.
      * @return string Decrypted plain text data.
      */
-    public function decrypt(string $data): string
+    public static function decrypt(string $data): string
     {
         $decoded = base64_decode($data, true);
 

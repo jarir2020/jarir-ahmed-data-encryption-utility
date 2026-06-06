@@ -1,8 +1,9 @@
 {
     "name": "jarir-ahmed/data-encryption-utility",
-    "description": "A simple and secure data encryption/decryption utility for PHP.",
+    "description": "Authenticated symmetric encryption for PHP (AES-256-GCM by default, encrypt-then-HMAC fallback).",
     "type": "library",
     "license": "MIT",
+    "keywords": ["encryption", "aes", "gcm", "crypto", "openssl"],
     "authors": [
         {
             "name": "Jarir Ahmed",
@@ -14,11 +15,20 @@
             "JarirAhmed\\Encryptor\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "JarirAhmed\\Encryptor\\Tests\\": "tests/"
+        }
+    },
     "require": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0"
+    },
+    "scripts": {
+        "test": "phpunit"
     },
     "minimum-stability": "stable"
 }
